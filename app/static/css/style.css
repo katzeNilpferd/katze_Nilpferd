@@ -85,11 +85,20 @@ aside .folder-list {
     border: none;
     border-radius: 15px;
     color: #aaaaaa;
-    transition-delay: 1s;
-    opacity 0.5s ease-in-out
+    transition: opacity 0.5s ease-in-out;
 }
 
 aside:not(:hover) #create-folder {
     opacity: 0;
     pointer-events: none;
+}
+
+main {
+    position:;
+}
+
+main div {
+    width: 75vh;
+    height: 10px;
+    background-color: aqua;
 }
