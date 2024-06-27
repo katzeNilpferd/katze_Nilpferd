@@ -10,6 +10,25 @@ body {
     background-color: #1e1e1e;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2E2E2E;
+    border-radius: 25px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #aaaaaa81;
+    border-radius: 25px;
+    border: 1px solid #2E2E2E;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #aaaaaa;
+}
+
 header {
     background-color: #262626;
     height: 49px;
@@ -69,7 +88,7 @@ aside {
 aside:hover {
     width: 300px;
 }
-aside div {
+aside .sidebar {
     width: 100%;
     height: 49px;
     display: flex;
@@ -77,9 +96,29 @@ aside div {
     align-items: center;
 }
 
-aside .folder-list {
+aside #folder-container {
     height: 95%;
-    background-color: rgb(231, 131, 0);
+    /* background-color: rgb(231, 131, 0); */
+    flex-direction: column;
+    justify-content: normal;
+    overflow-y: auto;
+}
+
+aside:not(:hover) #folder-container{
+    overflow-y: hidden;
+}
+
+.folder {
+    background-color: #1E1E1E;
+    width: 90%;
+    min-height: 60px;
+    border-radius: 15px;
+    margin: 3px 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+aside:not(:hover) .folder {
+    opacity: 0;
 }
 
 #create-folder {
@@ -89,7 +128,7 @@ aside .folder-list {
     border: none;
     border-radius: 15px;
     color: #aaaaaa;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s linear;
 }
 
 #create-folder:hover {
@@ -120,7 +159,7 @@ main div {
     height: 35px;
 }
 
-main .text-plate {
+main #text-plate {
     background-color: red;
     margin: 20px 0;
     height: 90%;

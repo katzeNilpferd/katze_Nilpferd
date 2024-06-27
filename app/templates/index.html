@@ -28,7 +28,7 @@
             </div>
         </header>
         <main>
-            <div class="text-plate">
+            <div id="text-plate">
 
             </div>
             <form action="">
@@ -38,15 +38,23 @@
             </form>
         </main>
         <aside>
-            <div class="folder-list">
+            <div class="sidebar" id="folder-container">
                 
             </div>
-            <div>
+            <div class="sidebar">
                 <button id="create-folder">Create a folder</button>
             </div>
         </aside>
         <footer>
 
         </footer>
+        <script>
+            document.getElementById("create-folder").addEventListener("click", function() {
+                const asideContainer = document.getElementById("folder-container");
+                const newSection = document.createElement("div");
+                newSection.classList.add("folder");
+                asideContainer.appendChild(newSection);
+            } );
+        </script>
     </body>
 </html>
