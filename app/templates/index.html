@@ -28,14 +28,12 @@
             </div>
         </header>
         <main>
-            <div id="text-plate">
+            <div id="notesContainer">
 
             </div>
-            <form action="">
-                <div class="text-line">
-                    <input type="text" placeholder="Создать запись...">
-                </div>
-            </form>
+            <div class="text-line">
+                <input type="text" id="noteInput" placeholder="Создать запись...">
+            </div>
         </main>
         <aside>
             <div class="sidebar" id="folder-container">
@@ -49,12 +47,52 @@
 
         </footer>
         <script>
+            function getRandomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            function generateFolderName() {
+                const folderNumber = Math.floor(Math.random() * 16);
+            
+            }
+
             document.getElementById("create-folder").addEventListener("click", function() {
                 const asideContainer = document.getElementById("folder-container");
                 const newSection = document.createElement("div");
+                const imageSection = document.createElement("div");
+                const titleSection = document.createElement("div");
                 newSection.classList.add("folder");
+                imageSection.classList.add("image-folder")
+                titleSection.classList.add("title-folder");
                 asideContainer.appendChild(newSection);
+                newSection.appendChild(imageSection);
+                newSection.appendChild(titleSection);
+                imageSection.style.backgroundColor = getRandomColor();
             } );
+
+            document.getElementById("noteInput").addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+
+                    const noteText = this.value.trim();
+
+                    if (noteText != "") {
+                        const notesContainer = document.getElementById("notesContainer");
+                        const noteElement = document.createElement("div");
+                        noteElement.classList.add("note");
+                        noteElement.textContent = noteText;
+                        notesContainer.appendChild(noteElement);
+
+                        this.value = "";
+                    }
+                }
+            } );
+
         </script>
     </body>
 </html>

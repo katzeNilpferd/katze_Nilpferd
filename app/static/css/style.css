@@ -114,12 +114,38 @@ aside:not(:hover) #folder-container{
     min-height: 60px;
     border-radius: 15px;
     margin: 3px 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+.image-folder {
+    min-width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 0px 8px;
+}
+
+.title-folder {
+    /* background-color: aqua; */
+    height: 25px;
+    width: 65%;
+    position: relative;
+    bottom: 10px;
+    left: 5px;
+    color: #aaaaaa;
+    font-size: 13px;
+    transition: 0.5s ease-in-out;
 }
 
 aside:not(:hover) .folder {
-    opacity: 0;
+    background-color: transparent;
 }
+
+aside:not(:hover) .title-folder {
+    color: transparent;
+}
+
 
 #create-folder {
     width: 250px;
@@ -159,10 +185,13 @@ main div {
     height: 35px;
 }
 
-main #text-plate {
-    background-color: red;
+main #notesContainer {
+    /* background-color: red; */
     margin: 20px 0;
     height: 90%;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .text-line input {
@@ -179,4 +208,13 @@ main #text-plate {
 
 .text-line input::placeholder {
     color: #aaaaaa;
+}
+
+.note {
+    background-color: #aaaaaa;
+    padding: 8px;
+    margin: 0 0 11px 0;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 15px;
 }
