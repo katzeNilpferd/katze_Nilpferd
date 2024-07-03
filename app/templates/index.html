@@ -55,10 +55,25 @@
                 }
                 return color;
             }
+            
+            function createIncrementor() {
+                let count = 1;
+                return function() {
+                    return count++
+                } 
+            }
+            const increment = createIncrementor();
+
 
             function generateFolderName() {
-                const folderNumber = Math.floor(Math.random() * 16);
-            
+                const first_name = 'Folder '
+                
+                titleName = first_name + increment()
+                return titleName
+            }
+
+            function generateFolderId() {
+                return timestamp = new Date().getTime();
             }
 
             document.getElementById("create-folder").addEventListener("click", function() {
@@ -67,12 +82,15 @@
                 const imageSection = document.createElement("div");
                 const titleSection = document.createElement("div");
                 newSection.classList.add("folder");
-                imageSection.classList.add("image-folder")
+                newSection.id = generateFolderId()
+                imageSection.classList.add("image-folder");
                 titleSection.classList.add("title-folder");
                 asideContainer.appendChild(newSection);
                 newSection.appendChild(imageSection);
                 newSection.appendChild(titleSection);
+                newSection.tabIndex = "0"
                 imageSection.style.backgroundColor = getRandomColor();
+                titleSection.textContent = generateFolderName();
             } );
 
             document.getElementById("noteInput").addEventListener("keydown", function(event) {

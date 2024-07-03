@@ -102,6 +102,7 @@ aside #folder-container {
     flex-direction: column;
     justify-content: normal;
     overflow-y: auto;
+    overflow-x: clip;
 }
 
 aside:not(:hover) #folder-container{
@@ -119,6 +120,15 @@ aside:not(:hover) #folder-container{
     align-items: center;
 }
 
+.folder:hover {
+    background-color: #2f2f2f;
+}
+
+.folder:active {
+    outline: 2px solid #aaaaaa;
+    transition: none;
+}
+
 .image-folder {
     min-width: 50px;
     height: 50px;
@@ -128,7 +138,7 @@ aside:not(:hover) #folder-container{
 
 .title-folder {
     /* background-color: aqua; */
-    height: 25px;
+    height: 20px;
     width: 65%;
     position: relative;
     bottom: 10px;
