@@ -5,7 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="..\static\images\favicon.ico" type="icon/x-icon">
-        <link rel="stylesheet" href="..\static\css\style.css">
+        {% assets "common.css" %}
+            <link rel="stylesheet" href="{{ ASSET_URL }}">
+        {% endassets %}
+        {% assets "common.js" %}
+            <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+        {% endassets %}
+        
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,71 +52,5 @@
         <footer>
 
         </footer>
-        <script>
-            function getRandomColor() {
-                const letters = '0123456789ABCDEF';
-                let color = '#';
-                for (let i = 0; i < 6; i++) {
-                    color += letters[Math.floor(Math.random() * 16)];
-                }
-                return color;
-            }
-            
-            function createIncrementor() {
-                let count = 1;
-                return function() {
-                    return count++
-                } 
-            }
-            const increment = createIncrementor();
-
-
-            function generateFolderName() {
-                const first_name = 'Folder '
-                
-                titleName = first_name + increment()
-                return titleName
-            }
-
-            function generateFolderId() {
-                return timestamp = new Date().getTime();
-            }
-
-            document.getElementById("create-folder").addEventListener("click", function() {
-                const asideContainer = document.getElementById("folder-container");
-                const newSection = document.createElement("div");
-                const imageSection = document.createElement("div");
-                const titleSection = document.createElement("div");
-                newSection.classList.add("folder");
-                newSection.id = generateFolderId()
-                imageSection.classList.add("image-folder");
-                titleSection.classList.add("title-folder");
-                asideContainer.appendChild(newSection);
-                newSection.appendChild(imageSection);
-                newSection.appendChild(titleSection);
-                newSection.tabIndex = "0"
-                imageSection.style.backgroundColor = getRandomColor();
-                titleSection.textContent = generateFolderName();
-            } );
-
-            document.getElementById("noteInput").addEventListener("keydown", function(event) {
-                if (event.key === "Enter") {
-                    event.preventDefault();
-
-                    const noteText = this.value.trim();
-
-                    if (noteText != "") {
-                        const notesContainer = document.getElementById("notesContainer");
-                        const noteElement = document.createElement("div");
-                        noteElement.classList.add("note");
-                        noteElement.textContent = noteText;
-                        notesContainer.appendChild(noteElement);
-
-                        this.value = "";
-                    }
-                }
-            } );
-
-        </script>
     </body>
-</html>
+</html>     

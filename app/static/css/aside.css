@@ -1,0 +1,57 @@
+aside {
+    background-color: #262626;
+    width: 68px;
+    height: 94vh;
+    margin: 3px;
+    padding: 10px 0px;
+    transition: width 1s;
+    z-index: 2;
+    position: absolute;
+    top: 49px;
+}
+
+aside:hover {
+    width: 300px;
+}
+aside .sidebar {
+    width: 100%;
+    height: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside #folder-container {
+    height: 95%;
+    flex-direction: column;
+    justify-content: normal;
+    overflow-y: auto;
+    overflow-x: clip;
+}
+
+aside:not(:hover) #folder-container{
+    overflow-y: hidden;
+}
+
+#create-folder {
+    width: 250px;
+    height: 30px;
+    background-color: #1e1e1e;
+    border: none;
+    border-radius: 15px;
+    color: #aaaaaa;
+    transition: opacity 0.5s linear;
+}
+
+#create-folder:hover {
+    background-color: #333333;
+}
+
+#create-folder:active {
+    background-color: #444444;
+}
+
+aside:not(:hover) #create-folder {
+    opacity: 0;
+    pointer-events: none;
+}
