@@ -7,4 +7,6 @@ main_blueprint = Blueprint(
                         static_folder="static"
                     )
 
-from app.views import api, routes
+@main_blueprint.route("/")
+def index():
+    return render_template("index.html")

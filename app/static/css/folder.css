@@ -32,7 +32,7 @@ aside:not(:hover) .folder.active {
 
 .title-folder {
     height: 20px;
-    width: 50%;
+    width: 150px;
     position: relative;
     bottom: 10px;
     left: 5px;

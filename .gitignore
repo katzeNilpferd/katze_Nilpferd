@@ -1,6 +1,6 @@
 .venv
 venv
 /app/__pycache__
-/app/views/__pycache__
+/app/routes/__pycache__
 /app/static/.webassets-cache
 /app/static/assets
